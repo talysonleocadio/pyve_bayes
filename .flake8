@@ -1,0 +1,4 @@
+[flake8]
+
+ignore =
+  W391, # Warning de linha vazia ao final do arquivo

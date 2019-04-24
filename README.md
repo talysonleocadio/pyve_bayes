@@ -1,6 +1,6 @@
-# PyCV
+# CatarataBayes
 
-Repo contendo o projeto de computação visual para reconhecimento de catarata.
+Projeto contendo solução em ML para reconhecimento de catarata.
 
 #### Requisitos
   - Python 3.x

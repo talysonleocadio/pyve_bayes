@@ -17,7 +17,6 @@ if (not file_exists(sanitized_file_path)):
 else:
     dataset = ds.generate_dataset(dirt_file_path)
 
-breakpoint()
 inputs, output = ds.extract_model_propeties(dataset, model_proprerties)
 
 model = classifier.create_model()

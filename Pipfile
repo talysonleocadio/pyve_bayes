@@ -9,6 +9,7 @@ mypy = "*"
 [packages]
 pandas = "*"
 scikit-learn = "*"
+sklearn = "*"
 
 [requires]
 python_version = "3"

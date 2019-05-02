@@ -1,22 +1,22 @@
-from utils.file_utils import (
-    get_dirt_file_path, get_sanitized_file_path, file_exists)
+from utils.file_utils import get_dataset_file_path
 import datasets.dataset as ds
 import bayes.classifier_nb as classifier
+from utils.inputs_utils import get_user_inputs, get_user_inputs_dataset
 from configs.config_utils import get_configs
-from operator import itemgetter
+from utils.dict_utils import extract_dict_fields
 
-dirt_file_path = get_dirt_file_path()
-sanitized_file_path = get_sanitized_file_path()
-replace_properties, model_proprerties = (
-    itemgetter('replace_properties', 'model_properties')(get_configs()))
+dataset_file_path = get_dataset_file_path()
+dataset = ds.get_dataset_from_file(dataset_file_path)
 
-if (not file_exists(sanitized_file_path)):
-    dataset = ds.generate_dataset(dirt_file_path)
-    ds.sanitize_dataset(dataset, replace_properties)
-    ds.generate_sanitized_csv(dataset, sanitized_file_path)
-else:
-    dataset = ds.generate_dataset(dirt_file_path)
-
-inputs, output = ds.extract_model_propeties(dataset, model_proprerties)
+loaded_json = get_configs()
+model_properties = extract_dict_fields(loaded_json, ['model_properties'])
+inputs, output = ds.extract_model_propeties(dataset, model_properties)
 
 model = classifier.create_model()
+model.fit(inputs, output.values.ravel())
+
+user_inputs = get_user_inputs()
+input_dataset = get_user_inputs_dataset(user_inputs)
+
+print(model.predict(input_dataset))
+

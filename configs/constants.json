@@ -1,32 +1,7 @@
 {
-  "sanitized_file": "assets/sanitized_file.csv",
-  "dirt_file": "assets/dirt_file.csv",
-  "replace_properties": {
-    "historico-credito": {
-      "Negativa": 0,
-      "Desconhecida": 1,
-      "Positiva": 2
-    },
-    "garantias": {
-      "Sim": 1,
-      "Nao": 2
-    },
-    "endividamento": {
-      "> 30 %": 1,
-      "< 30 %": 2
-    },
-    "valor-solicitado": {
-      "< 15000.00": 0,
-      "> 15000 < 35000": 1,
-      "> 35000.00": 2
-    },
-    "inadimplente": {
-      "Sim": 1,
-      "Nao": 0
-    }
-  },
+  "dataset_file": "assets/dataset_file.csv",
   "model_properties": {
-    "inputs": ["historico-credito", "endividamento", "garantias", "valor-solicitado"],
-    "output": ["inadimplente"]
+    "inputs": ["pregnancies", "glucose", "blood_press", "bmi", "age"],
+    "output": ["outcome"]
   }
 }

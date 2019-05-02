@@ -1,19 +1,11 @@
 import pandas as pd
-from operator import itemgetter
+from utils.dict_utils import extract_dict_fields
 
 
-def generate_dataset(file_path):
-    return pd.read_csv(file_path, sep=';')
-
-
-def sanitize_dataset(dataset, replace_dict):
-    dataset.replace(replace_dict, inplace=True)
-
-
-def generate_sanitized_csv(dataset, file_path):
-    dataset.to_csv(file_path, sep=';', encoding='utf_8')
+def get_dataset_from_file(file_path):
+    return pd.read_csv(file_path, sep=',')
 
 
 def extract_model_propeties(dataset, propeties_dict):
-    inputs, output = itemgetter('inputs', 'output')(propeties_dict)
+    inputs, output = extract_dict_fields(propeties_dict, ['inputs', 'output'])
     return dataset[inputs], dataset[output]

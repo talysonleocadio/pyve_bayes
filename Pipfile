@@ -10,6 +10,9 @@ mypy = "*"
 pandas = "*"
 scikit-learn = "*"
 sklearn = "*"
+ipython = "*"
+flask = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3"

@@ -1,6 +1,6 @@
-# CatarataBayes
+# Pré diagnostico de diabetes
 
-Projeto contendo solução em ML para reconhecimento de catarata.
+Projeto contendo solução em ML para pré diagnóstico de diabetes.
 
 #### Requisitos
   - Python 3.x

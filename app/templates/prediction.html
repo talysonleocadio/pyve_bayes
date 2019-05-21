@@ -1,0 +1,9 @@
+{% if predict == 1 %}
+<h1>Você está classificado no grupo de risco </h1>
+{% endif %}
+{% if predict == 0 %}
+<h1>Você não está classificado no grupo de risco </h1>
+{% endif %}
+<p> Seu IMC é de: {{bmi}} </p>
+<hr>
+<div>Tela inicial: <a href="/index">Voltar</a></div>

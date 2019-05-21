@@ -15,12 +15,25 @@ def get_user_inputs():
     return user_inputs
 
 
-def calculate_bmi(inputs, fields=['height', 'weight']):
-    height, weight = extract_dict_fields(inputs, fields)
+def parse_request_data(request_form):
+    weight = float(request_form['weight'])
+    height = float(request_form['height'])
+    return {
+        'pregnancies': int(request_form['pregnancies']),
+        'age': int(request_form['age']),
+        'weight': weight,
+        'height': height,
+        'bmi': calculate_bmi(weight, height),
+        'blood_press': int(request_form['blood_press']),
+        'glucose': int(request_form['glucose'])
+    }
+
+
+def calculate_bmi(weight, height):
     return round((weight / (height ** 2)), 1)
 
 
-def get_user_inputs_dataset(inputs):
+def generate_dataset_from_input(inputs):
     pregnancies, glucose, bmi, blood_press, age = (
         extract_dict_fields(inputs, ['pregnancies', 'glucose', 'bmi', 'blood_press', 'age'])
     )
